@@ -1,6 +1,8 @@
-# agnoster.zsh-theme
+# agnoster-newline.zsh-theme
+An alteration of the popular agnoster ZSH theme which prompts on 
+the second line.
 
-A ZSH theme optimized for people who use:
+Optimized for people who use:
 
 - Solarized
 - Git
