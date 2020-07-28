@@ -91,7 +91,7 @@ prompt_context() {
   local user=`whoami`
 
   if [[ "$user" != "$DEFAULT_USER" || -n "$SSH_CONNECTION" ]]; then
-    prompt_segment $PRIMARY_FG default " %(!.%{%F{yellow}%}.)$TOPBAR $user@%m "
+    prompt_segment $PRIMARY_FG default "%(!.%{%F{yellow}%}.)$user@%m "
   fi
 }
 
@@ -132,6 +132,7 @@ prompt_dir() {
 prompt_status() {
   local symbols
   symbols=()
+  symbols+="$TOPBAR"
   [[ $RETVAL -ne 0 ]] && symbols+="%{%F{red}%}$CROSS"
   [[ $UID -eq 0 ]] && symbols+="%{%F{yellow}%}$LIGHTNING"
   [[ $(jobs -l | wc -l) -gt 0 ]] && symbols+="%{%F{cyan}%}$GEAR"
