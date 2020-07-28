@@ -49,6 +49,12 @@ DETACHED="\u27a6"
 CROSS="\u2718"
 LIGHTNING="\u26a1"
 GEAR="\u2699"
+ARROW="\u27A4"
+BOTTOMBAR="\u255A"
+TOPBAR="\u2554"
+
+# Font Colors
+NC='\033[0m' # No Color
 
 # Begin a segment
 # Takes two arguments, background and foreground. Both can be omitted,
@@ -73,7 +79,7 @@ prompt_end() {
   else
     print -n "%{%k%}"
   fi
-  print -n "%{%f%}"
+  print -n "\n $NC$BOTTOMBAR$ARROW%{%f%}"
   CURRENT_BG=''
 }
 
@@ -85,7 +91,7 @@ prompt_context() {
   local user=`whoami`
 
   if [[ "$user" != "$DEFAULT_USER" || -n "$SSH_CONNECTION" ]]; then
-    prompt_segment $PRIMARY_FG default " %(!.%{%F{yellow}%}.)$user@%m "
+    prompt_segment $PRIMARY_FG default " %(!.%{%F{yellow}%}.)$TOPBAR $user@%m "
   fi
 }
 
